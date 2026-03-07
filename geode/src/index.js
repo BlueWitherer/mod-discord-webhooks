@@ -4,6 +4,7 @@ import path from 'path';
 import send from "@util/send.ts";
 
 const modJson = 'mod.json';
+const vars = process.env;
 
 function readJSONSafe(file) {
     try {
@@ -14,16 +15,16 @@ function readJSONSafe(file) {
 };
 
 async function main() {
-    const webhookURL = process.env.WEBHOOK_URL;
+    const webhookURL = vars.WEBHOOK_URL;
     if (!webhookURL) {
         console.error('WEBHOOK_URL not provided');
         process.exit(1);
     };
 
-    const messageContent = process.env.MESSAGE_CONTENT;
+    const messageContent = vars.MESSAGE_CONTENT;
 
-    const repoRoot = process.env.GITHUB_WORKSPACE || process.cwd();
-    const modJSONPath = process.env.MOD_JSON_PATH || path.join(repoRoot, modJson);
+    const repoRoot = vars.GITHUB_WORKSPACE || process.cwd();
+    const modJSONPath = vars.MOD_JSON_PATH || path.join(repoRoot, modJson);
     const modJSONFull = path.isAbsolute(modJSONPath) ? modJSONPath : path.join(repoRoot, modJSONPath);
     const mod = readJSONSafe(modJSONFull);
     if (!mod) {
@@ -33,7 +34,7 @@ async function main() {
 
     const logoPath = path.join(path.relative(repoRoot, path.dirname(modJSONFull)), "logo.png");
 
-    const changelogText = process.env.CHANGELOG_TEXT || '';
+    const changelogText = vars.CHANGELOG_TEXT || '';
 
     // mod data
     const name = mod.name || 'Unknown Mod';
@@ -47,8 +48,8 @@ async function main() {
     let geode = mod.geode || '1.0.0';
     if (geode.toLowerCase().startsWith("v")) geode = geode.slice(1);
 
-    const repo = process.env.GITHUB_REPOSITORY || '';
-    const ref = process.env.GITHUB_REF || '';
+    const repo = vars.GITHUB_REPOSITORY || '';
+    const ref = vars.GITHUB_REF || '';
 
     const titleSection = {
         type: 9,
