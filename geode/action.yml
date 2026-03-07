@@ -31,7 +31,7 @@ runs:
 
     - name: Send Discord Webhook
       shell: bash
-      run: bun ${{ github.action_path }}/src/geode/index.js
+      run: bun ${{ github.action_path }}/src/index.js
       env:
         WEBHOOK_URL: ${{ inputs.webhook-url }}
         MESSAGE_CONTENT: ${{ inputs.content }}
