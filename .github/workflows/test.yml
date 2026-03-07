@@ -17,6 +17,7 @@ jobs:
               uses: ./geode
               with:
                   webhook-url: ${{ secrets.RELEASE_WEBHOOK }}
+                  mod-json-path: "./geode/mod.json"
                   content: "-# <@!358673524661157897>"
                   changelog: |
                       - Fixed some bugs
