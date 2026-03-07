@@ -3,6 +3,8 @@ import path from 'path';
 
 import send from "@util/send.ts";
 
+const modJson = 'mod.json';
+
 function readJSONSafe(file) {
     try {
         return JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -21,13 +23,15 @@ async function main() {
     const messageContent = process.env.MESSAGE_CONTENT;
 
     const repoRoot = process.env.GITHUB_WORKSPACE || process.cwd();
-    const modJSONPath = process.env.MOD_JSON_PATH || path.join(repoRoot, 'mod.json');
+    const modJSONPath = process.env.MOD_JSON_PATH || path.join(repoRoot, modJson);
     const modJSONFull = path.isAbsolute(modJSONPath) ? modJSONPath : path.join(repoRoot, modJSONPath);
     const mod = readJSONSafe(modJSONFull);
     if (!mod) {
         console.error('Failed to read mod.json at', modJSONFull);
         process.exit(1);
     };
+
+    const logoPath = path.join(path.relative(repoRoot, path.dirname(modJSONFull)), "logo.png");
 
     const changelogText = process.env.CHANGELOG_TEXT || '';
 
@@ -56,7 +60,7 @@ async function main() {
         accessory: {
             type: 11,
             media: {
-                url: `https://raw.githubusercontent.com/${repo}/${ref}/logo.png`,
+                url: `https://raw.githubusercontent.com/${repo}/${ref}/${logoPath}`,
             },
             description: `${name} mod logo.`,
         },

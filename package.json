@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "private": true,
     "description": "Send a Discord webhook message with components v2 for a mod release notification.",
-    "main": "src/index.js",
     "keywords": [
         "discord",
         "webhook",
