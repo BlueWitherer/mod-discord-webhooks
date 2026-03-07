@@ -11,8 +11,5 @@
         "actions"
     ],
     "author": "Cheeseworks",
-    "license": "MIT",
-    "imports": {
-        "@util/": "./util/"
-    }
+    "license": "MIT"
 }

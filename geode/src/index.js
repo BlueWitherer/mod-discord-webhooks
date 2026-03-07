@@ -15,7 +15,7 @@ async function main() {
     const webhookURL = process.env.WEBHOOK_URL;
     if (!webhookURL) {
         console.error('WEBHOOK_URL not provided');
-        process.exitCode = 1;
+        process.exit(1);
     };
 
     const messageContent = process.env.MESSAGE_CONTENT;
@@ -26,7 +26,7 @@ async function main() {
     const mod = readJSONSafe(modJSONFull);
     if (!mod) {
         console.error('Failed to read mod.json at', modJSONFull);
-        process.exitCode = 1;
+        process.exit(1);
     };
 
     const changelogText = process.env.CHANGELOG_TEXT || '';
@@ -152,7 +152,7 @@ async function main() {
         await send(webhookURL, body);
     } catch (err) {
         console.error(err);
-        process.exitCode = 1
+        process.exit(1);
     };
 };
 
