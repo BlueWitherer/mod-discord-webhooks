@@ -1,0 +1,18 @@
+{
+    "schemaVersion": 1,
+    "id": "xtreme",
+    "version": "${version}",
+    "name": "Xtreme",
+    "description": "Mess up your whole world entirely...",
+    "authors": [
+        "Cheeseworks"
+    ],
+    "contact": {
+        "homepage": "https://obsidian.cubicstudios.xyz/",
+        "sources": "https://github.com/BlueWitherer/Xtreme",
+        "issues": "https://github.com/BlueWitherer/Xtreme/issues",
+        "irc": "https://www.dsc.gg/cubic",
+        "email": "cheeseworks@cubicstudios.xyz"
+    },
+    "icon": "assets/xtreme/icon.png"
+}

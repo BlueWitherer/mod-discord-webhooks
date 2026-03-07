@@ -1,0 +1,39 @@
+name: Send Discord Webhook
+description: Send a Discord webhook message with components v2 for a Geode mod release notification.
+
+inputs:
+  webhook-url:
+    description: "The webhook URL to send the message to"
+    required: true
+
+  content:
+    description: "Miscellaneous contents of the message outside of the embed component."
+    required: false
+    default: ""
+
+  mod-json-path:
+    description: "Relative path to the mod's `mod.json` file. Defaults to `mod.json` in root."
+    required: false
+    default: ""
+
+  changelog:
+    description: "Multi-line changelog text to include in the message."
+    required: false
+    default: ""
+
+runs:
+  using: "composite"
+  steps:
+    - name: Use Bun
+      uses: oven-sh/setup-bun@v2
+      with:
+        bun-version: "latest"
+
+    - name: Send Discord Webhook
+      shell: bash
+      run: bun ${{ github.action_path }}/src/geode/index.js
+      env:
+        WEBHOOK_URL: ${{ inputs.webhook-url }}
+        MESSAGE_CONTENT: ${{ inputs.content }}
+        MOD_JSON_PATH: ${{ inputs.mod-json-path }}
+        CHANGELOG_TEXT: ${{ inputs.changelog }}
