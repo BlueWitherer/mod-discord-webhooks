@@ -21,7 +21,7 @@ async function main() {
         process.exit(1);
     };
 
-    const messageContent = vars.MESSAGE_CONTENT;
+    const messageContent = vars.MESSAGE_CONTENT || '';
 
     const repoRoot = vars.GITHUB_WORKSPACE || process.cwd();
     const modJSONPath = vars.MOD_JSON_PATH || path.join(repoRoot, modJson);
@@ -34,9 +34,10 @@ async function main() {
 
     const logoPath = path.join(path.relative(repoRoot, path.dirname(modJSONFull)), "logo.png");
 
-    const changelogText = vars.CHANGELOG_TEXT || '';
+    const changelogText = (vars.CHANGELOG_TEXT || '')
+        .replace(/<c(?:[a-z]|-[0-9a-f]{6})>|<\/c>/gi, '') // remove color tags
+        .replace(/!\[([^\]]*)\]\([^)]*\)/gi, '$1'); // remove sprites (keep alt text)
 
-    // mod data
     const name = mod.name || 'Unknown Mod';
     const description = mod.description || '';
     const id = mod.id || '';
