@@ -17,7 +17,7 @@ inputs:
     default: ""
 
   changelog:
-    description: "Multi-line changelog text to include in the message. Color tags will be removed, and Geode sprite embeds will be replaced with their alt text."
+    description: "Multi-line changelog text to include in the message. Color tags will be removed, and sprites will be replaced with their alt text, if any."
     required: false
     default: ""
 
