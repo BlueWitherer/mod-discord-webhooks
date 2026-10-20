@@ -22,7 +22,7 @@
         "joke"
     ],
     "dependencies": {
-        "geode.node-ids": ">=1.21.0"
+        "geode.node-ids": ">=1.23.0"
     },
     "api": {
         "include": [

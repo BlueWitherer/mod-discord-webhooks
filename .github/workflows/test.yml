@@ -18,10 +18,10 @@ jobs:
               with:
                   webhook-url: ${{ secrets.RELEASE_WEBHOOK }}
                   mod-json-path: "./geode/mod.json"
-                  content: "-# <@!358673524661157897>"
+                  content: "-# <@!358673524661157897> | **Webhook test requested**"
                   changelog: |
-                      - Fixed some bugs
-                      - Probably still have like a lot more bugs left to fix in this mod to be totally honest lol
-                      - Tweaked this one pretty weird setting
-                      - Soggy mod incompatible
-                      - This was just a test
+                      - <cy>Fixed</c> some <cr>bugs</c>
+                      - Probably still have like <c-0af7f7>a lot more bugs left to fix</c> in this mod to be totally honest lol
+                      - Tweaked this one <co>pretty weird setting</c>
+                      - Soggy mod <cg>incompatible</c>
+                      - This was just a test :3c

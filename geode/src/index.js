@@ -34,7 +34,7 @@ async function main() {
 
     const logoPath = path.join(path.relative(repoRoot, path.dirname(modJSONFull)), "logo.png");
 
-    const changelogText = vars.CHANGELOG_TEXT || '';
+    const changelogText = (vars.CHANGELOG_TEXT || '').replace(/<c(?:[a-z]|-[0-9a-f]{6})>|<\/c>/gi, '');
 
     // mod data
     const name = mod.name || 'Unknown Mod';

@@ -17,7 +17,7 @@ inputs:
     default: ""
 
   changelog:
-    description: "Multi-line changelog text to include in the message."
+    description: "Multi-line changelog text to include in the message. Color tags will get removed."
     required: false
     default: ""
 
