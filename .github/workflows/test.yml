@@ -20,8 +20,8 @@ jobs:
                   mod-json-path: "./geode/mod.json"
                   content: "-# <@!358673524661157897> | **Webhook test requested**"
                   changelog: |
-                      - <cy>Fixed</c> some <cr>bugs</c>
-                      - Probably still have like <c-0af7f7>a lot more bugs left to fix</c> in this mod to be totally honest lol
-                      - Tweaked this one <co>pretty weird setting</c>
-                      - Soggy mod <cg>incompatible</c>
-                      - This was just a test :3c
+                      - ![✅](frame:check.png) <cy>Fixed</c> some <cr>bugs</c>
+                      - ![❓](question.png) Probably still have like <c-0af7f7>a lot more bugs left to fix</c> in this mod to be totally honest lol
+                      - ![🔧](wrench.png?scale=0.75) Tweaked this one <co>pretty weird setting</c>
+                      - ![🐱](frame:gato.png) Soggy mod <cg>incompatible</c>
+                      - ![🏳️‍🌈](frame:gay.png?scale=0.67) This was just a <c-fafafa>test</c> :3c
